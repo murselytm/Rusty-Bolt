@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/interface2.wav-a0bc1dea5c7dddd86f1b811ef962c9e0.sample"
+
+[deps]
+
+source_file="res://Sounds/interface2.wav"
+dest_files=[ "res://.import/interface2.wav-a0bc1dea5c7dddd86f1b811ef962c9e0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

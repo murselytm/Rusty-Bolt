@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://sprites/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/texture/ground tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://sprites/texture/backgorund3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/texture/Healthbar/bar3.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Mainboss.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/Screw.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/texture/Traps/TrapSkipe.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/texture/Traps/RomeNumbers.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/ScreenShake.gd" type="Script" id=10]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/texture/LevelImage.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sounds/MainMusic.wav" type="AudioStream" id=13]
+
+[node name="StageOne" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 110, 145 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -917504, 1610612743, 0, -917503, 1610612743, 0, -917502, 1610612743, 0, -917501, 1610612743, 0, -917500, 1610612743, 0, -917499, 1610612743, 0, -917498, 1610612743, 0, -917497, 1610612743, 0, -917496, 1610612743, 0, -917495, 1610612743, 0, -851968, -1610612735, 0, -851927, 9, 0, -786432, -1610612735, 0, -786391, 9, 0, -720896, -1610612735, 0, -720895, 7, 0, -720894, 7, 0, -720893, 7, 0, -720892, 7, 0, -720855, 9, 0, -655360, -1610612735, 0, -655347, 12, 0, -655319, 9, 0, -589824, -1610612735, 0, -589811, 13, 0, -589806, 7, 0, -589805, 7, 0, -589804, 7, 0, -589801, 0, 0, -589800, 0, 0, -589799, 0, 0, -589783, 9, 0, -524288, -1610612735, 0, -524283, 7, 0, -524282, 7, 0, -524281, 7, 0, -524280, 7, 0, -524279, 7, 0, -524278, 8, 0, -524275, 13, 0, -524261, 0, 0, -524247, 9, 0, -458752, -1610612735, 0, -458740, 7, 0, -458739, 7, 0, -458738, 7, 0, -458737, 7, 0, -458722, 7, 0, -458721, 7, 0, -458720, 7, 0, -458719, 7, 0, -458718, 7, 0, -458717, 7, 0, -458716, 7, 0, -458715, 7, 0, -458714, 7, 0, -458713, 7, 0, -458712, 7, 0, -458711, 9, 0, -393216, -1610612735, 0, -393188, 0, 0, -393175, 9, 0, -327680, -1610612735, 0, -327670, 11, 0, -327664, 7, 0, -327663, 7, 0, -327662, 7, 0, -327661, 7, 0, -327639, 9, 0, -262144, -1610612735, 0, -262134, 11, 0, -262118, 7, 0, -262117, 7, 0, -262116, 7, 0, -262103, 9, 0, -196608, -1610612735, 0, -196598, -1073741818, 0, -196597, 7, 0, -196596, 7, 0, -196595, 7, 0, -196594, 7, 0, -196593, 7, 0, -196587, 7, 0, -196586, 7, 0, -196585, 7, 0, -196567, 9, 0, -131072, -1610612735, 0, -131031, 9, 0, -65536, -1610612735, 0, -65513, 7, 0, -65512, 7, 0, -65511, 7, 0, -65495, 9, 0, 0, -1610612735, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 1, 0, 31, 1, 0, 41, 9, 0, 65536, -1610612735, 0, 65541, 7, 0, 65542, 7, 0, 65543, 7, 0, 65544, 7, 0, 65577, 9, 0, 131072, -1610612735, 0, 131105, 1, 0, 131108, 1, 0, 131113, 9, 0, 196608, -1610612735, 0, 196649, 9, 0, 262144, -1610612735, 0, 262174, 1, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262181, 1, 0, 262182, 1, 0, 262183, 1, 0, 262184, 1, 0, 262185, 9, 0, 327680, -1610612735, 0, 327685, 0, 0, 327686, 0, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327707, 1, 0, 327721, 9, 0, 393216, -1610612735, 0, 393217, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393234, 1, 0, 393235, 1, 0, 393236, 1, 0, 393239, 1, 0, 393240, 1, 0, 393241, 1, 0, 393257, 9, 0, 458752, -1610612735, 0, 458753, 1, 0, 458754, 1, 0, 458793, 9, 0, 524288, -1610612735, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524310, 1, 0, 524329, 9, 0, 589824, -1610612735, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589865, 9, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 655389, 1, 0, 655390, 1, 0, 655391, 1, 0, 655392, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 655396, 1, 0, 655397, 1, 0, 655398, 1, 0, 655399, 1, 0, 655400, 1, 0, 655401, 1, 0, 720896, 3, 0, 720897, 3, 0, 720898, 3, 0, 720899, 3, 0, 720900, 3, 0, 720901, 3, 0, 720902, 3, 0, 720903, 3, 0, 720904, 3, 0, 720905, 3, 0, 720906, 3, 0, 720907, 3, 0, 720908, 3, 0, 720909, 3, 0, 720910, 3, 0, 720911, 3, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 720916, 3, 0, 720917, 3, 0, 720918, 3, 0, 720919, 3, 0, 720920, 3, 0, 720921, 3, 0, 720922, 3, 0, 720923, 3, 0, 720924, 3, 0, 720925, 3, 0, 720926, 3, 0, 720927, 3, 0, 720928, 3, 0, 720929, 3, 0, 720930, 3, 0, 720931, 3, 0, 720932, 3, 0, 720933, 3, 0, 720934, 3, 0, 720935, 3, 0, 720936, 3, 0, 720937, 3, 0 )
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 357, 118 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 308, 84 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 0.5, 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 330, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, -220 )
+scale = Vector2( 1.04062, 1.02973 )
+texture = ExtResource( 4 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bar" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="Sprite" parent="Bar"]
+position = Vector2( 50, 16 )
+texture = ExtResource( 5 )
+hframes = 7
+
+[node name="Enemy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 561, -124 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 502, 53 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, -1 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 470, 149 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 98, -141 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 402, -172 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 414, 146 )
+
+[node name="Screw" parent="." instance=ExtResource( 7 )]
+position = Vector2( 42, -190 )
+
+[node name="Screw2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 213, -173 )
+
+[node name="Screw3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 26, 85 )
+
+[node name="Screw4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 629, 149 )
+
+[node name="Screw5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 640, 53 )
+
+[node name="Screw6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 193, -61 )
+
+[node name="TrapSkipe" parent="." instance=ExtResource( 8 )]
+position = Vector2( 230, -67 )
+
+[node name="TrapSkipe2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 566, 142 )
+
+[node name="Counter" type="CanvasLayer" parent="."]
+
+[node name="ScrewCounter" type="Sprite" parent="Counter"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+hframes = 7
+
+[node name="ScreenShake" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Tween" type="Tween" parent="ScreenShake"]
+
+[node name="Door" parent="." instance=ExtResource( 11 )]
+position = Vector2( 634, -125 )
+
+[node name="LevelImage" parent="Door" instance=ExtResource( 12 )]
+position = Vector2( 0, -29 )
+
+[node name="Level1Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -20.0
+autoplay = true
+
+[connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

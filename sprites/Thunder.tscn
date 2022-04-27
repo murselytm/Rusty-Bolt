@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/Thunder.gd" type="Script" id=1]
+[ext_resource path="res://sprites/texture/Effects/Thundersphere/Thundersphere2.png" type="Texture" id=2]
+[ext_resource path="res://sprites/texture/Effects/Thundersphere/Thundersphere4.png" type="Texture" id=3]
+[ext_resource path="res://sprites/texture/Effects/Thundersphere/Thundersphere3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/texture/Effects/Thundersphere/Thundersphere1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/texture/Effects/Thundersphere/Thundersphere5.png" type="Texture" id=6]
+[ext_resource path="res://Sounds/Explosion.mp3" type="AudioStream" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.5, 8.5 )
+
+[node name="Thunder" type="Area2D"]
+scale = Vector2( 0.3, 0.3 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "shoot"
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 0.5 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="ExplesionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -25.0
+pitch_scale = 1.8
+
+[connection signal="body_entered" from="." to="." method="_on_Thunder_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
